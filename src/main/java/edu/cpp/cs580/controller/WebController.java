@@ -1,5 +1,6 @@
 package edu.cpp.cs580.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -138,4 +139,17 @@ public class WebController {
 		List<User> user = userManager.getUserWithMajors(major);
 		return user;
 	}
+	
+	@RequestMapping(value = "/cs580/signInStaffs", method = RequestMethod.GET)
+	String getSignIn() {
+		ArrayList<User> userList = (ArrayList<User>) userManager.listAllUsers();
+		String list = "";
+		for(User u : userList){
+			list += "  ID: " + u.getId() + " Name : " + u.getName();
+			
+		}
+		return list;
+	}
+	
+	
 }
