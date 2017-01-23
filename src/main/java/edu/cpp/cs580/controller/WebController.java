@@ -133,4 +133,9 @@ public class WebController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/cs580/Major/{major}", method = RequestMethod.GET)
+	List<User> getUserWithMajors(@PathVariable("major") String major) {
+		List<User> user = userManager.getUserWithMajors(major);
+		return user;
+	}
 }

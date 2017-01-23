@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -94,4 +95,17 @@ public class FSUserManager implements UserManager {
 		return new ArrayList<User>(userMap.values());
 	}
 
+
+	@Override
+	public List<User> getUserWithMajors(String major) {
+		ArrayList<User> list = new ArrayList<User>();
+		UserMap userMap = getUserMap();
+		for(Entry<String, User> u : userMap.entrySet()){
+			if(u.getValue().getMajor().equals(major)){
+				list.add(u.getValue());
+			}
+		}
+
+		return list;
+	}
 }
