@@ -140,6 +140,22 @@ public class WebController {
 		return user;
 	}
 	
+	@RequestMapping(value = "/cs580/createdTime", method = RequestMethod.GET)
+	String createdTime() {
+		ArrayList<User> userList = (ArrayList<User>) userManager.listAllUsers();
+		String list ="";
+		for(User u : userList){
+			list+= "\n" + u.getId() + " - : " + u.getCreationTime() ; 
+		}
+		return list;
+	}
+	
+	@RequestMapping(value = "/cs580/{userName}", method = RequestMethod.GET)
+	List<User> getUserWithNames(@PathVariable("userName") String userName) {
+		List<User> user = userManager.getUserWithNames(userName);
+		return user;
+	}
+	
 	@RequestMapping(value = "/cs580/signInStaffs", method = RequestMethod.GET)
 	String getSignIn() {
 		ArrayList<User> userList = (ArrayList<User>) userManager.listAllUsers();
