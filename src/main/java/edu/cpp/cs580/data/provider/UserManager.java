@@ -45,5 +45,8 @@ public interface UserManager {
 	public List<User> listAllUsers();
 	
 	public List<User> getUserWithMajors(String major);
+	
+	public List<User> getUserWithNames(String major);
+	
 
 }

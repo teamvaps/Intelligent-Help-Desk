@@ -108,4 +108,18 @@ public class FSUserManager implements UserManager {
 
 		return list;
 	}
+	
+	@Override
+	public List<User> getUserWithNames(String userName) {
+		ArrayList<User> list = new ArrayList<User>();
+		UserMap userMap = getUserMap();
+		for(Entry<String, User> u : userMap.entrySet()){
+			if(u.getValue().getName().equals(userName)){
+				list.add(u.getValue());
+			}
+		}
+
+		return list;
+	}
+
 }
