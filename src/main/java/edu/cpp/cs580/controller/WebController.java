@@ -167,5 +167,12 @@ public class WebController {
 		return list;
 	}
 	
+	@RequestMapping(value = "/cs580/submit", method = RequestMethod.GET)
+	String alert() {
+		return "<html><body onload = \"alert('Successfully submitted the custom form')\"> </body></html>";
+		
+	}
+
+	
 	
 }
