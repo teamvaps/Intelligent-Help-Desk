@@ -1,7 +1,11 @@
 package edu.cpp.cs580.controller;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.cpp.cs580.App;
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.provider.UserManager;
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /**
  * This is the controller used by Spring framework.
@@ -52,7 +59,7 @@ public class WebController {
 		// with the URL: http://localhost:8080/
 		return "OK-CS580";
 	}
-
+	
 	/**
 	 * This is a simple example of how to use a data manager
 	 * to retrieve the data and return it as an HTTP response.
@@ -176,3 +183,7 @@ public class WebController {
 	
 	
 }
+	 
+	 
+
+	
