@@ -1,23 +1,33 @@
 package edu.cpp.cs580.controller;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+ 
+import edu.cpp.cs580.model.Customer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-
-
+ 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import edu.cpp.cs580.App;
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.provider.UserManager;
+
+
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -179,10 +189,22 @@ public class WebController {
 		return "<html><body onload = \"alert('Successfully submitted the custom form')\"> </body></html>";
 		
 	}
+	
+	
+	@RequestMapping(value = "/cs580/display", method = RequestMethod.GET)
+	String getWebPageItems() throws IOException{
+	Document doc = Jsoup.connect("http://localhost:8080/cs580/home").get();
+	Elements newsHeadLines = doc.select("div ul li");
+	System.out.println(newsHeadLines);
+	return newsHeadLines.toString();
+	 
+	 
+	}
+
+	}
 
 	
-	
-}
+
 	 
 	 
 
