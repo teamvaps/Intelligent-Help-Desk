@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Work from Home Computer Checklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1><b>RALV ThinkCentre Computers checklist</b></h1>
+      <h1><b>Fothion</b></h1>
+                   <form action="#" th:action="@{/form}" th:object="${customer}" method="post">
+               
+           
+            <p>Computer Name: <input type="text" th:field="*{id}" /></p>
+        <p>Date: <input type="text" th:field="*{date}" /></p>
+        <p>Ticket: <input type="text" th:field="*{firstname}" /></p>
+        <p>Tech: <input type="text" th:field="*{lastname}" /></p>
+         <p><input type="checkbox" value="ON" />Configure Bios: </p>
+         <p><input type="checkbox" value="ON" />F12 to get to bios: </p>
+<p><input type="checkbox" value="ON" />A**-go to Devices tab -> network set up -> Disable "Boot Agent" and Disable "Wireless Lan" -> save</p>         
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

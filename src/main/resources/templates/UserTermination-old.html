@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Work from Home Computer Checklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1><b>RALV ThinkCentre UserTermination checklist</b></h1>
+      <h1><b>Office365</b></h1>
+                   <form action="#" th:action="@{/UserTermination}" th:object="${Usertermination}" method="post">
+               
+           
+            <p>Computer Name: <input type="text" th:field="*{id}" /></p>
+        <p>Date: <input type="text" th:field="*{date}" /></p>
+                <p><input type="checkbox" value="ON" />Double check the requested date and time to terminate a user. 
+Termination requested Date: </p>
+         <p><input type="checkbox" value="ON" />Add Ticket number to display name , exactly like Ticket #11478 Full name) </p>
+<p><input type="checkbox" value="ON" />Change password using let me create the password</p>         
+<p><input type="checkbox" value="ON" />Block User sign-in under Sign-in Status from signing up</p>
+<p><input type="checkbox" value="ON" />Schedule fore Archiving after 48 hours</p>
+<p><input type="checkbox" value="ON" />Archive Mail box using Compliance management, refer to instruction "Process of Terminated user search to Archive". for detail.</p>
+<p><input type="checkbox" value="ON" />Make sure you open .pst file using outlook to confirm you can access inbox and sent item</p>
+<p><input type="checkbox" value="ON" />Compare .pst file size and mail box usage ( recipient properties in exchange admin)</p>
+<p><input type="checkbox" value="ON" />Make sure you have 2 copy in the following folder 
+.pst path 1 D:\Old User Archive 2017\User folder 
+. path2 D:\Old Users Archive 2015\User's folder</p>
+<p><input type="checkbox" value="ON" />Remove the office 365 license</p>
+<p><input type="checkbox" value="ON" />Delete Mail box.</p>
+
+
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
