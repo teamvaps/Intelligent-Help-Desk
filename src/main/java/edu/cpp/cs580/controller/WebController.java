@@ -6,12 +6,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.google.common.graph.GraphBuilder;
+import com.google.common.graph.MutableGraph;
+
  
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
  
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -197,8 +211,65 @@ public class WebController {
 	Elements newsHeadLines = doc.select("div ul li");
 	System.out.println(newsHeadLines);
 	return newsHeadLines.toString();
-	 
-	 
+	}
+	
+	@RequestMapping(value = "/cs580/gson", method = RequestMethod.GET)
+	void toGson() {
+		final Gson gson = GsonBuilder().create();
+		gson.toJson("Hello", System.out);
+		gson.toJson(123, System.out);
+	}
+	
+	private GsonBuilder GsonBuilder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@RequestMapping(value = "/cs580/showGraph", method = RequestMethod.GET)
+	String getGraph(){
+		MutableGraph<Integer> graph = GraphBuilder.directed().build();
+		graph.addNode(1);
+		graph.putEdge(2, 3);  // also adds nodes 2 and 3 if not already present
+		Set<Integer> successorsOfTwo = graph.successors(2); // returns {3}
+		System.out.println(graph);
+		return graph.toString() + "\n Successors of two: " + successorsOfTwo;
+	}
+	
+	//Added joda-time library to display date and time more efficiently
+	@RequestMapping(value = "/cs580/showTime", method = RequestMethod.GET)
+	void showTime(){
+        DateTime date = new DateTime();
+        System.out.println("date = " + date);
+
+        // Or simply calling the now() method.
+        date = DateTime.now();
+        System.out.println("date = " + date);
+
+        // Creates DateTime object with information like year, month,
+        // day, hour, minute, second and milliseconds
+        date = new DateTime(2017, 1, 15, 0, 0, 0, 0);
+        System.out.println("date = " + date);
+
+        // Create DateTime object from milliseconds.
+        date = new DateTime(System.currentTimeMillis());
+        System.out.println("date = " + date);
+        
+        // Create DateTime object from Date object.
+        date = new DateTime(new Date());
+        System.out.println("date = " + date);
+
+        // Create DateTime object from Calendar object.
+        Calendar calendar = Calendar.getInstance();
+        date = new DateTime(calendar);
+        System.out.println("date = " + date);
+
+        // Create DateTime object from string. The format of the
+        // string  should be precise.
+        date = new DateTime("2017-01-15T13:14:00.000+08:00");
+        System.out.println("date = " + date);
+        date = DateTime.parse("2017-01-15");
+        System.out.println("date = " + date);
+        date = DateTime.parse("15/01/2017", DateTimeFormat.forPattern("dd/MM/yyyy"));
+        System.out.println("date = " + date);
 	}
 
 	}
