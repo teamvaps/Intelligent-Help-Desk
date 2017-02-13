@@ -22,4 +22,20 @@ public class FormObjectServiceTest {
 		user1.setId("011939291_SS");
 		Assert.assertEquals("011939291_SS", user1.getId());
 	}
+	
+	@Test
+	public void testUserMajor(){
+		User user1 = new User();
+		user1.setMajor("Computer Science");
+		Assert.assertEquals("Computer Science", user1.getMajor());
+	}
+	@Test
+	public void testUserName(){
+		User user1 = new User();
+		user1.setName("Abraham Lincoln");
+		Assert.assertEquals("Abraham Lincoln", user1.getName());
+	}
+	
+	
+
 }
