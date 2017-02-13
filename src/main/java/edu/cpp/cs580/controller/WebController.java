@@ -12,6 +12,7 @@ import com.google.common.graph.MutableGraph;
 
  
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
 
 import java.util.Calendar;
@@ -236,42 +237,14 @@ public class WebController {
 	
 	//Added joda-time library to display date and time more efficiently
 	@RequestMapping(value = "/cs580/showTime", method = RequestMethod.GET)
-	void showTime(){
-        DateTime date = new DateTime();
-        System.out.println("date = " + date);
-
-        // Or simply calling the now() method.
-        date = DateTime.now();
-        System.out.println("date = " + date);
-
-        // Creates DateTime object with information like year, month,
-        // day, hour, minute, second and milliseconds
-        date = new DateTime(2017, 1, 15, 0, 0, 0, 0);
-        System.out.println("date = " + date);
-
-        // Create DateTime object from milliseconds.
-        date = new DateTime(System.currentTimeMillis());
-        System.out.println("date = " + date);
-        
-        // Create DateTime object from Date object.
-        date = new DateTime(new Date());
-        System.out.println("date = " + date);
-
-        // Create DateTime object from Calendar object.
-        Calendar calendar = Calendar.getInstance();
-        date = new DateTime(calendar);
-        System.out.println("date = " + date);
-
-        // Create DateTime object from string. The format of the
-        // string  should be precise.
-        date = new DateTime("2017-01-15T13:14:00.000+08:00");
-        System.out.println("date = " + date);
-        date = DateTime.parse("2017-01-15");
-        System.out.println("date = " + date);
-        date = DateTime.parse("15/01/2017", DateTimeFormat.forPattern("dd/MM/yyyy"));
-        System.out.println("date = " + date);
+	String showTime(){
+		DateTimeZone localTimeZone = DateTimeZone.forID("Europe/Kiev");
+		DateTime utcTime = new DateTime(2012, 11, 29, 11, 40,DateTimeZone.UTC);
+		DateTime localTime = utcTime.withZone(localTimeZone);
+		System.out.println(utcTime);
+		System.out.println(localTime);
+		return  "Time in UTC:  " + utcTime.toString() +"   |   " + "Local Time: " + localTime.toString();
 	}
-
 	}
 
 	
