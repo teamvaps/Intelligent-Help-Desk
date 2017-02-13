@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import edu.cpp.cs580.data.Company;
 import edu.cpp.cs580.data.Computer;
+import edu.cpp.cs580.data.User;
 
 public class FormObjectServiceTest {
 	@Test
@@ -14,4 +15,11 @@ public class FormObjectServiceTest {
 				Assert.assertTrue(comname.getname().equals(name));
 	}
 
+	
+	@Test
+	public void testUserID(){
+		User user1 = new User();
+		user1.setId("011939291_SS");
+		Assert.assertEquals("011939291_SS", user1.getId());
+	}
 }
