@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>NewUser Checklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us">
+	<!-- meta http-equiv="Content-Type" content="text/html; charset=windows-1252"-->
+	<title>Configure Bios</title>
+</head>
+
+<body bgcolor="#FFCCCC">
+<form action="#" th:action="@{/NewUser}" th:object="${NewUser}" method="post">
+
+<p align="center"><font color="#008080"><b>RALV ThinkCentre NewUser checklist</b></font></p>
+<p align="center">&nbsp;</p>
+<p align="center">Computer Name: <input type="text" name="T1" size="20">&nbsp;&nbsp;&nbsp; 
+Date: <input type="text" name="T2" size="20">&nbsp; Ticket:<input type="text" name="T3" size="20"> 
+Tech:<input type="text" name="T4" size="20"></p>
+<p>&nbsp;</p>
+<table border="1" width="100%">
+	<tr>
+		<td width="653"><input type="checkbox" name="C1" value="ON"><b><span style="font-size: 12.0pt; line-height: 107%"> 
+		New Employee Form</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C2" value="ON"><b><span style="font-size: 12.0pt; line-height: 107%; font-family: Calibri,sans-serif">Create 
+		Office 365 Account</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C5" value="ON"><b><span style="font-size: 12.0pt; line-height: 107%; font-family: Calibri,sans-serif">Create&nbsp; 
+		ConnectWise Contact</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C7" value="ON"><b><span style="font-size: 12.0pt; line-height: 107%"> 
+		Setup CW Portal</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C9" value="ON"><b><span style="font-size: 12.0pt; line-height: 107%">
+		</span><span style="font-size: 12.0pt; line-height: 107%">Create Active 
+		Directory account, Firstname.Lastname</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C11" value="ON"><b><span style="font-size:12.0pt;line-height:107%"> 
+		Enter email address in Active Directory</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C13" value="ON"><b><span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 7.0pt; font-family: Times New Roman; line-height: 107%">
+		</span><span style="font-size:12.0pt;line-height:107%">Active directory 
+		Description</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C15" value="ON"> <b>
+		<span style="font-size: 12.0pt; line-height: 107%; font-family: Calibri,sans-serif">
+		Create 8x8 account</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C17" value="ON"> <b>
+		<span style="font-size:12.0pt;line-height:107%">Use Standard Note 
+		“Network Account Created”</span></b></td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C19" value="ON"> <b>
+		<span style="font-size:12.0pt;line-height:107%">Change ticket Status to&nbsp; 
+		complete. </span></b></td>
+	</tr>
+	</table>
+
+	<p><input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2"><input type="reset" value="Delete" name="B3"><input type="reset" value="Search" name="B4"></p>
+</form>
+</body>
+
+</html>

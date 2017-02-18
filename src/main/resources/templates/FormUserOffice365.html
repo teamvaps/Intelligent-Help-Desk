@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FormUserOffice365</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us">
+	<!-- meta http-equiv="Content-Type" content="text/html; charset=windows-1252"-->
+	<title>Form User Office365</title>
+</head>
+
+<body bgcolor="#C0C0C0">
+
+<form action="#" th:action="@{/FormUserOffice365}" th:object="${FormUserOffice365}" method="post">
+
+<p align="center"><font color="#008080"><b>RALV ThinkCentre Users Information</b></font></p>
+<p align="center">&nbsp;</p>
+
+<p>&nbsp;</p>
+<p align="center"><b><font size="6">Form of all users in Office365</font></b></p>
+<p align="center">&nbsp;</p>
+<p align="left">Firstname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="T2" size="20">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b><font size="4"><a href="https://www.office365.com">&nbsp; Office365 link</a></font></b></p>
+<p align="left">Lastname:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="T1" size="20"></p>
+<p align="left">Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="T3" size="20"><b><font size="5">.</font></b>
+<select size="1" name="D3">
+<option selected value=".realappeal.com">.realappeal.com</option>
+<option>.Fothion.com</option>
+</select></p>
+<p align="left">Display Name: <input type="text" name="T4" size="20"></p>
+<p align="left">Job Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="T5" size="20"></p>
+<p align="left">Department:&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="T6" size="20"></p>
+<p align="left">Groups:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select size="1" name="D1">
+<option>8x8 Admins</option>
+<option>AC Leads & Seniors</option>
+<option>AC reps</option>
+<option>AC Reps in Training</option>
+<option>Alerts</option>
+<option>Alex's Team Chat</option>
+<option>All Coach</option>
+<option>All RA Employees</option>
+<option>API Maintenance Message Notification</option>
+<option>Best Coaches Batch 3</option>
+<option>BFG</option>
+<option>Block External Emails</option>
+<option>Caleia's Team</option>
+<option>Cari's  Team Discussion</option>
+<option>CCE</option>
+<option>CES Team</option>
+<option>Chelsey's Team</option>
+<option>client remarketing xyz</option>
+<option>Coach Management</option>
+<option>Coach Messaging Specialists</option>
+<option>Coach Trianing Group 6/29/15</option>
+<option>Coaches Hired 10/03/2016</option>
+<option>Coaches in Training</option>
+<option>CORE Coaches</option>
+<option>CS and Tech agents</option>
+<option>Demand Management</option>
+<option>Disaster Recovery Team</option>
+<option>Emily Baack</option>
+<option>Fifi's Team</option>
+<option>fitbit</option>
+<option>Fri 1pm PT Group Coaching</option>
+<option>Fulfillment</option>
+<option>Georgia 8x8</option>
+<option>Group 2 Training Group</option>
+<option>AC Leads</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" value="Add Groups" name="B4"></p>
+<p align="left">SharedMailbox:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select size="1" name="D4">
+<option>8x8 Admins</option>
+<option>AC Leads & Seniors</option>
+<option>AC reps</option>
+<option>AC Reps in Training</option>
+<option>Alerts</option>
+<option>Alex's Team Chat</option>
+<option>All Coach</option>
+<option>All RA Employees</option>
+<option>API Maintenance Message Notification</option>
+<option>Best Coaches Batch 3</option>
+<option>BFG</option>
+<option>Block External Emails</option>
+<option>Caleia's Team</option>
+<option>Cari's  Team Discussion</option>
+<option>CCE</option>
+<option>CES Team</option>
+<option>Chelsey's Team</option>
+<option>client remarketing xyz</option>
+<option>Coach Management</option>
+<option>Coach Messaging Specialists</option>
+<option>Coach Trianing Group 6/29/15</option>
+<option>Coaches Hired 10/03/2016</option>
+<option>Coaches in Training</option>
+<option>CORE Coaches</option>
+<option>CS and Tech agents</option>
+<option>Demand Management</option>
+<option>Disaster Recovery Team</option>
+<option>Emily Baack</option>
+<option>Fifi's Team</option>
+<option>fitbit</option>
+<option>Fri 1pm PT Group Coaching</option>
+<option>Fulfillment</option>
+<option>Georgia 8x8</option>
+<option>Group 2 Training Group</option>
+<option>AC Leads</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" value="Add SharedMailbox" name="B5"></p>
+<p align="left">8x8 Queue:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<input type="text" name="T7" size="20"></p>
+
+
+	<p><input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2"><input type="reset" value="Delete" name="B3"><input type="reset" value="Search" name="B4"></p>
+</form>
+</body>
+
+</html>
