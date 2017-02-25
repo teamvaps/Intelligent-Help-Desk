@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Work from Home Computer Checklist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-us">
+<!-- meta http-equiv="Content-Type" content="text/html; charset=windows-1252"-->
+<title>Configure Bios</title>
+</head>
+
+<body>
+	<form action="#" th:action="@{/UserTerminationEdit}"
+		th:object="${checkList1}" method="post">
+
+		<p align="center">
+			<font color="#008080"><b>RALV ThinkCentre Computers
+					checklist</b></font>
+		</p>
+		<p align="center">&nbsp;</p>
+		<p align="center">
+			Computer Name: <input type="text"  name="T1" size="20" th:field="*{computerName}" value = ${computerName} readonly >
+			Date: <input type="text" th:field="*{date}" name="T2" size="20" value = ${date} readonly>
+			Ticket:<input type="text" name="T3" size="20" th:field="*{ticketNumber}" value = ${ticketNumber} readonly> 
+			TechnicianID:<input type="text" name="T4" size="20" th:field="*{technicianID}" value = ${technicianID} readonly>
+		</p>
+		<p>&nbsp;</p>
+		<table border="1" width="100%">
+			<tr>
+				<td width="653"><input type="checkbox" th:field="*{issue1}" name="C1" value="ON">Configure
+					Bios. See instructions</td>
+				<td><input type="checkbox" name="C3" value="ON" th:field="*{issue3}">vipre
+					is shown in console roaming folder&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C2" value="ON" th:field="*{issue2}" >F12
+					to get to bios</td>
+				<td><input type="checkbox" name="C4" value="ON" th:field="*{issue4}">Test
+					8x8 by Login and make calls</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C5" value="ON" th:field="*{issue5}" >A**-go
+					to Devices tab -&gt; network set up -&gt; Disable &quot;Boot
+					Agent&quot; and Disable &quot;Wireless Lan&quot; -&gt; save</td>
+				<td><input type="checkbox" name="C6" value="ON">Test
+					Remote connection in N-Able</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C7" value="ON" >B**-Go
+					to &quot;Start Up&quot; tab -&gt; Primary Boot Sequence -&gt; 1-USB
+					Key /2-USB HDD /3-Sata 2 DVD/4&nbsp;&nbsp;&nbsp;&nbsp; HDD/ 5-
+					network/ 6 usb CD ROm/7 other devices/ last USB FDD</td>
+				<td><input type="checkbox" name="C8" value="ON">Add 3rd
+					DNS 8.8.8.8</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C9" value="ON" >C**
+					SAVE and EXIT</td>
+				<td><input type="checkbox" name="C10" value="ON">Run
+					Directory Sync Client ( Follow directions)</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C11" value="ON">F12
+					to get to bios</td>
+				<td><input type="checkbox" name="C12" value="ON">Go to
+					Realappeal.Zillionlive.com and run test</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C13" value="ON">Go
+					to &quot;Security&quot; tab -&gt;</td>
+				<td><input type="checkbox" name="C14" value="ON">Place
+					in Public downloads</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C15" value="ON">
+					Set administrator Password (4045)</td>
+				<td><input type="checkbox" name="C16" value="ON">Web
+					Sense</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C17" value="ON">
+					set NO for &quot;Allow flashing BiOS to a Previous Ver&quot;</td>
+				<td><input type="checkbox" name="C18" value="ON">Sonic
+					Wall</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C19" value="ON">
+					set YES for &quot;Require admin pass when flashing&quot;</td>
+				<td><input type="checkbox" name="C20" value="ON">Team
+					Viewer</td>
+			</tr>
+			<tr>
+				<td width="653">&nbsp;<input type="checkbox" name="C21"
+					value="ON"> Set NO for &quot;Require POP on Restart
+				</td>
+				<td><input type="checkbox" name="C22" value="ON">Install
+					and update software</td>
+			</tr>
+			<tr>
+				<td width="653">&nbsp;<input type="checkbox" name="C24"
+					value="ON">Set NO for &quot;POP Changeable by user&quot;
+				</td>
+				<td><input type="checkbox" name="C23" value="ON">Websense
+					(follow installation document) after joing domian</td>
+			</tr>
+			<tr>
+				<td width="653">&nbsp;<input type="checkbox" name="C25"
+					value="ON">Set &quot;Disabled for &quot;Smart USB
+					Protection&quot;
+				</td>
+				<td><input type="checkbox" name="C26" value="ON">WebX</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C27" value="ON">Set
+					Admin Password: Sky***al!</td>
+				<td><input type="checkbox" name="C28" value="ON">Vipre
+					(After joining domain)</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C29" value="ON">Set
+					Administrator password: Sky***al!</td>
+				<td><input type="checkbox" name="C30" value="ON">Skype
+					for Business</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C31" value="ON">Join
+					to Domain: RALV.LOCAL</td>
+				<td><input type="checkbox" name="C32" value="ON">8x8</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C33" value="ON">check
+					Wallpaper (Desktop Back Ground)</td>
+				<td><input type="checkbox" name="C34" value="ON">SonicWall</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C35" value="ON">Check
+					2 Asset Tags</td>
+				<td><input type="checkbox" name="C36" value="ON">Google
+					Chrome</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C37" value="ON">Log
+					in as Administrator and Run GP Update (RALV\administrator)
+					0...R3@l!...</td>
+				<td><input type="checkbox" name="C38" value="ON">Firefox
+				</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C39" value="ON">Run
+					Windows Update and reboot</td>
+				<td><input type="checkbox" name="C40" value="ON">Uninstall
+					FireFox maintenance service</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C41" value="ON">Move
+					Real appeal coach home ( RA-Computer to Remote coach computers)</td>
+				<td><input type="checkbox" name="C42" value="ON">Adobe
+					Flash</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C43" value="ON">Log
+					in as Coach15xxx (Rea.....) if the computer is for home use,
+					request Henry to create a password</td>
+				<td><input type="checkbox" name="C44" value="ON">N-ABLE
+					(install as local admin)</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C45" value="ON">Log
+					on to 10.40.45.4 and create user in Active directory and apply new
+					password for this new account</td>
+				<td><input type="checkbox" name="C46" value="ON">Verify
+					N-ABLE Connectivity is connected</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C47" value="ON">Try
+					to read USB or CD Rom both must fail</td>
+				<td><input type="checkbox" name="C48" value="ON">Tenable(After
+					joining domain)</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C49" value="ON">Check
+					Redirected folder</td>
+				<td><input type="checkbox" name="C50" value="ON">RealAppeal.MSI</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C51" value="ON">Try
+					different Websites to make sure they are blocked</td>
+				<td><input type="checkbox" name="C52" value="ON">JAVA</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C53" value="ON">check
+					NetExtender for administrator account</td>
+				<td><input type="checkbox" name="C54" value="ON">Disk
+					Crypt</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C55" value="ON">NetExtender's
+					settings: vpn.realappeal.com:4433 log in with admin account,
+					Domain: ralv.local</td>
+				<td><input type="checkbox" name="C56" value="ON">Disable
+					lenovo Alret ( Backup -Update -Warranty check)</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C57" value="ON">check
+					NetExtender for Coach15 account</td>
+				<td><input type="checkbox" name="C58" value="ON">Check
+					for all the software to be updated</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C59" value="ON">NetExtender's
+					settings: vpn.realappeal.com:4433 log in with coach account,
+					Domain: ralv.local</td>
+				<td><input type="checkbox" name="C60" value="ON">Log on
+					to coach account and check do not update on Fire Fox</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C61" value="ON">Switch
+					the computer to the external network and test NetExtender for both
+					admin and coach</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C63" value="ON">Log
+					in as Coach15…….. and try saving files to desktop. It should fail</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C65" value="ON">Test
+					offline files and Redirection.</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C67" value="ON">Verify
+					that Encryption is done.</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C69" value="ON">Boot
+					without USB. It should not boot.</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C70" value="ON">Unplug
+					network card and see if you can login with Coach15………</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C71" value="ON">Verify
+					you have no files on the desktop .</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C72" value="ON">Make
+					sure the computer is shown in Ncentral Portal
+					https://ncod45.n-able.com and State is Green</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="653"><input type="checkbox" name="C73" value="ON">Verify
+					12GB of memory is installed on computer</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<p>
+			<input type="submit" value="Submit" name="B1"><input
+				type="reset" value="Reset" name="B2"><input type="reset"
+				value="Delete" name="B3"><input type="reset" value="Search"
+				name="B4">
+		</p>
+	</form>
+</body>
+
+</html>

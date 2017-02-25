@@ -5,7 +5,7 @@ public class Customer {
     private long id;
     private long date;
     private long check1;
-    private String firstname;
+    private String firstname = "RA-RO";
     private String lastname;
       
   

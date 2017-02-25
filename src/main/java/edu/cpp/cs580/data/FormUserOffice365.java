@@ -3,6 +3,7 @@ package edu.cpp.cs580.data;
 public class FormUserOffice365 {
       
     private long id6;
+    private long id5;
    
   
     public long getid6() {

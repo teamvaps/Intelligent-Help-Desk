@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Work from Home Computer Checklist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>
+		<b>RALV ThinkCentre Computers checklist</b>
+	</h1>
+	<h1>
+		<b>Fothion</b>
+	</h1>
+	<form action="#" th:action="@{/UserTerminationEdit}" th:object="${checkList1}"
+		method="post">
+
+
+		<P> Successfully submitted the form </P>
+		
+	 <p th:text="'computerName: ' + ${checkList1.computerName}" />
+	 <p th:text="'Tech: ' + ${checkList1.technicianID}" />
+	 <p th:text="'TicketNumber: ' + ${checkList1.ticketNumber}" />
+	 
+   <p th:text="'date: ' + ${checkList1.date}" />
+   <p th:text="'issue1: ' + ${checkList1.issue1}" />
+   <p th:text="'issue2: ' + ${checkList1.issue2}" />
+   <p th:text="'issue3: ' + ${checkList1.issue3}" />
+   <p th:text="'issue4: ' + ${checkList1.issue4}" />
+   
+		
+	</form>
+	
+</body>
+</html>
