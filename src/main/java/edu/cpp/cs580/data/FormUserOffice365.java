@@ -10,7 +10,7 @@ public class FormUserOffice365 {
     }
   
     public void setid6(long id6) {
-        this.id5 = id6;
+        this.id6 = id6;
     }
     
     

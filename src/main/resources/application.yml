@@ -2,3 +2,12 @@ spring:
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
+  datasource:
+    password: Arezoo1074
+    url: jdbc:mysql://arezoofothion.ccayc5se8sqr.us-west-2.rds.amazonaws.com:3306/Fothion
+    username: ArezooFothion
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto:  update
+      dialect: org.hibernate.dialect.MySQLDialect

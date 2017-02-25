@@ -1,8 +1,9 @@
 package edu.cpp.cs580.data;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import javax.persistence.*;
 
-public class Bitlocker {
+public class Userterm {
 
     private String ticket;
     private String date;
@@ -15,7 +16,6 @@ public class Bitlocker {
     private Boolean C4;
     private Boolean C5;
     private Boolean C6;
-    private Boolean C7;
         
     
     @ModelAttribute("tech")   
@@ -113,14 +113,5 @@ public class Bitlocker {
 	@ModelAttribute("C6")
 	public void setC6(Boolean c6) {
 		this.C6 = c6;
-	}
-	@ModelAttribute("C7")
-	public Boolean getC7() {
-		return C7;
-	}
-	
-	@ModelAttribute("C7")
-	public void setC7(Boolean c7) {
-		this.C7 = c7;
 	}
 }

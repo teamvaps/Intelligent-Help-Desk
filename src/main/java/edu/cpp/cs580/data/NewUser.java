@@ -1,61 +1,117 @@
 package edu.cpp.cs580.data;
 
-public class NewUser {
-      
-    private long id1;
-    private long date1;
-    private String Tech1;
-    private long Type1;
-    private long SubType1;
-    private long Item1;
-      
-  
-    public long getid1() {
-        return id1;
-    }
-  
-    public void setid1(long id1) {
-        this.id1 = id1;
-    }
-    
-    public long getdate1() {
-        return date1;
-    }
+import org.springframework.web.bind.annotation.ModelAttribute;
+import javax.persistence.*;
 
-  
-    public void setdate1(long date1) {
-        this.date1 = date1;
-    }
-   
-    public String getTech1() {
-        return Tech1;
-    }
-  
-    public void setTech1(String Tech1) {
-        this.Tech1 = Tech1;
-    }
-    public long getType1() {
-        return Type1;
-    }
-  
-    public void setType1(long Type1) {
-        this.Type1 = Type1;
-    }
-    public long getSubType1() {
-        return SubType1;
-    }
-  
-    public void setSubType1(long SubType1) {
-        this.SubType1 = SubType1;
-    }
-    public long getItem1() {
-        return Item1;
-    }
-  
-    public void setItem1(long Item1) {
-        this.Item1 = Item1;
-    }
-  
+public class Newuser {
+
+    private String ticket;
+    private String date;
+    private String tech;
+    private String computerName;
+    // Checkboxes
+    private Boolean C1;
+    private Boolean C2;
+    private Boolean C3;
+    private Boolean C4;
+    private Boolean C5;
+    private Boolean C6;
+        
     
+    @ModelAttribute("tech")   
+    public String getTech() {
+        return this.tech;
+    }
   
+    @ModelAttribute("tech")
+    public void setTech(String Tech) {
+        this.tech = Tech;
+    }
+    
+	@ModelAttribute("computerName")
+	public String getComputerName() {
+		return this.computerName;
+	}
+	
+	@ModelAttribute("computerName")
+	public void setComputerName(String computerName) {
+		this.computerName = computerName;
+	}
+
+	@ModelAttribute("ticket")
+	public String getTicket() {
+		return this.ticket;
+	}
+
+	@ModelAttribute("ticket")
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
+	}
+
+	@ModelAttribute("date")
+	public String getDate() {
+		return date;
+	}
+
+	@ModelAttribute("date")
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	
+	
+	@ModelAttribute("C1")
+	public Boolean getC1() {
+		return C1;
+	}
+
+	@ModelAttribute("C1")
+	public void setC1(Boolean c1) {
+		this.C1 = c1;
+	}
+	@ModelAttribute("C2")
+	public Boolean getC2() {
+		return C2;
+	}
+	
+	@ModelAttribute("C2")
+	public void setC2(Boolean c2) {
+		this.C2 = c2;
+	}
+	@ModelAttribute("C3")
+	public Boolean getC3() {
+		return C3;
+	}
+	
+	@ModelAttribute("C3")
+	public void setC3(Boolean c3) {
+		this.C3 = c3;
+	}
+	@ModelAttribute("C4")
+	public Boolean getC4() {
+		return C4;
+	}
+	
+	@ModelAttribute("C4")
+	public void setC4(Boolean c4) {
+		this.C4 = c4;
+	}
+	@ModelAttribute("C5")
+	public Boolean getC5() {
+		return C5;
+	}
+	
+	@ModelAttribute("C5")
+	public void setC5(Boolean c5) {
+		this.C5 = c5;
+	}
+	@ModelAttribute("C6")
+	public Boolean getC6() {
+		return C6;
+	}
+	
+	@ModelAttribute("C6")
+	public void setC6(Boolean c6) {
+		this.C6 = c6;
+	}
 }
