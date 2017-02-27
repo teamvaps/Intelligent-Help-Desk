@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Termination Task Checklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us">
+	<!-- meta http-equiv="Content-Type" content="text/html; charset=windows-1252"-->
+	<title>User Termination Task</title>
+</head>
+
+<body bgcolor="#C0C0C0">
+<form action="#" th:action="@{/UserTermSearch}" th:object="${Userterm}" method="post">
+
+<p align="center"><font color="#990033" size="6"><b>User Termination Task 
+Checklist</b></font></p>
+<p align="center">&nbsp;</p>
+<p align="center"><b>Computer Name: </b> <input type="text" th:field="*{computerName}" name="computerName" id="computerName" size="20">&nbsp;&nbsp;&nbsp; 
+<b>Date: </b> <input th:field="*{date}" type="text" name="date" size="20">&nbsp;<b> 
+Ticket:</b><input type="text" th:field="*{ticket}" id='ticket' name="ticket" size="20"> 
+<b>Tech:</b><input th:field="*{tech}" type="text" id='tech' name="tech" size="20"></p>
+<p>&nbsp;</p>
+<table border="1" width="100%">
+	<tr>
+		<td width="613"><input type="checkbox" name="C1" id="C1" th:field="*{C1}" value="ON"><font color="#990033" size="5"><b>Check 
+		the ticket Type.&nbsp; </b></font>
+		<blockquote>
+			<p><b>Type:</b> Administration</p>
+			<p><b>SubType: </b>User Termination</p>
+			<p><b>Item:</b> Old User Profile Backup</p>
+			<p><b>Template:</b> User termination Check List</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
+		</blockquote>
+		</td>
+		<td><input type="checkbox" name="C3" id="C3" th:field="*{C3}" value="ON"><b><font color="#990033" size="5">Termination 
+		history excel sheet&nbsp; </font></b>
+		<p class="MsoNormal"><b>Open excel sheet: </b></p>
+		<blockquote>
+			<p class="MsoNormal">RA Terminated Employees.xlsx </p>
+			<p class="MsoNormal">\\ftdc\Netops\Client\Real Appeal\terminated 
+			user\Terminated user OLD </p>
+			<p class="MsoNormal">Add ticket number </p>
+			<p class="MsoNormal">Add user full name </p>
+			<p class="MsoNormal">Add termination Date </p>
+			<p class="MsoNormal">Add user computer name </p>
+			<p class="MsoNormal">Date computer return </p>
+			<p class="MsoNormal">8x8 extension and direct number</p>
+		</blockquote>
+		<p>&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="613"><input type="checkbox" name="C2" id="C2" th:field="*{C2}" value="ON"><b><font size="5" color="#990033">Office365</font></b><blockquote>
+			<p class="MsoNormal">Double check the requested date and time to 
+			terminate a user. </p>
+			<p class="MsoNormal">Termination requested Date: </p>
+			<p class="MsoNormal">Add Ticket number to display name , exactly 
+			like Ticket #11478 Full name) </p>
+			<p class="MsoNormal">Change password using let me create the 
+			password </p>
+			<p class="MsoNormal">Block User sign-in under Sign-in Status from 
+			signing up </p>
+			<p class="MsoNormal">Schedule fore Archiving after 48 hours </p>
+			<p class="MsoNormal">Archive Mail box using Compliance management, 
+			refer to instruction &quot;Process of Terminated user search to Archive&quot;. 
+			for detail. </p>
+			<p class="MsoNormal">Make sure you open .pst file using outlook to 
+			confirm you can access inbox and sent item </p>
+			<p class="MsoNormal">Compare .pst file size and mail box usage ( 
+			recipient properties in exchange admin) </p>
+			<p class="MsoNormal">Make sure you have 2 copy in the following 
+			folder </p>
+			<blockquote>
+				<p class="MsoNormal"><b>.pst path 1 D:\Old User Archive 
+				2017\User folder </b></p>
+				<p class="MsoNormal"><b>. path2 D:\Old Users Archive 2015\User&#39;s 
+				folder </b></p>
+			</blockquote>
+			<p class="MsoNormal">Remove the office 365 license </p>
+			<p class="MsoNormal">Delete Mail box</p>
+		</blockquote>
+		<p>&nbsp;</td>
+		<td><input type="checkbox" name="C4" id="C4" th:field="*{C4}" value="ON"><b><font color="#990033" size="5">8x8</font></b><blockquote>
+			<p class="MsoNormal">Unassigned the extension </p>
+			<p class="MsoNormal">Rename first name to &quot;available&quot; and lastname 
+			to &quot;can be reassigned&quot; </p>
+			<p class="MsoNormal">&nbsp;Log History </p>
+			<p class="MsoNormal">Deleted the profile</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+			<p class="MsoNormal">&nbsp;</p>
+		</blockquote>
+		<p>&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="613"><input type="checkbox" name="C5" id="C5" th:field="*{C5}" value="ON"><b><font size="5" color="#990033">Active 
+		Directory</font></b><p class="MsoNormal" style="margin-left:.25in">
+		Add ticket number to User properties and Add Termination Date</p>
+		<p class="MsoNormal" style="margin-left:.25in">Disable account </p>
+		<p class="MsoNormal" style="margin-left:.25in">Change the password </p>
+		<p class="MsoNormal" style="margin-left:.25in">Removing user from all 
+		security groups under &quot;Member of&quot; </p>
+		<p class="MsoNormal" style="margin-left:.25in">Doublecheck remove VPN, 
+		by removing user from SSL VPN Group </p>
+		<p class="MsoNormal" style="margin-left:.25in">Move Users &quot;to be deleted 
+		user&quot;</p>
+		<p>&nbsp;</td>
+		<td><font color="#990033"><input type="checkbox" name="C6" value="ON"></font><b><font size="5" color="#990033">Connect 
+		Wise</font></b><blockquote>
+			<p class="MsoNormal">Inactive user in connectwise</p>
+		</blockquote>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</td>
+	</tr>
+	
+</table>
+	<p><input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2"><input type="reset" value="Delete" name="B3"><input type="reset" value="Search" name="B4"></p>
+</form>
+</body>
+
+</html>

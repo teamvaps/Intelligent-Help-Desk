@@ -1,6 +1,7 @@
 package edu.cpp.cs580.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +42,7 @@ import edu.cpp.cs580.data.Userterm;
 import edu.cpp.cs580.data.Usertermination;
 
 @Controller
-public class SimpleWebController {
+public class SimpleWebController<UserTerminationDate> {
 	
     Logger log = LoggerFactory.getLogger(this.getClass());
     private ObjectMapper mapper = new ObjectMapper();
@@ -136,7 +137,9 @@ public class SimpleWebController {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-        return "";
+                  
+        return "UserTermination";
+       
     }
     
     @RequestMapping(value="/UserTerminationSearch", method=RequestMethod.GET)
@@ -145,13 +148,20 @@ public class SimpleWebController {
         return "UserTerminationSearch";
     }
     @RequestMapping(value="/UserTerminationSearch", method=RequestMethod.POST)
-    public String userTerminationSearch(@RequestParam("computerName")String computerName,Model model) {
+    public String userTerminationSearch(@RequestParam("computerName")String computerName,Model model) throws JsonParseException, JsonMappingException, IOException {
         Usertermination found = new Usertermination();
     	UserTerminationEntity userTerminationFound = userTerminationRepository.findByComputerName(computerName);
+    	 	if (userTerminationFound != null){
+        	userTerminationRepository.delete(userTerminationFound);
+       }   	 	
           	UserTerminationCBoxValues userCBoxes;
 		try {
 			userCBoxes = mapper.readValue(userTerminationFound.getJsonChecklist(), UserTerminationCBoxValues.class);
-	    	found.setC1(userCBoxes.getC1());
+			found.setC1(userCBoxes.getC1());
+	    	found.setC2(userCBoxes.getC2());
+	    	found.setC3(userCBoxes.getC3());
+	    	found.setC4(userCBoxes.getC4());
+	    	found.setC5(userCBoxes.getC5());
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -166,6 +176,9 @@ public class SimpleWebController {
     	model.addAttribute("Usertermination", found);
     	return "UserTermination";
     }
+    
+    
+    
 /*  
  * User Termin form submit
  */
@@ -192,6 +205,43 @@ public class SimpleWebController {
 		}
         return "";
     }
+    @RequestMapping(value="/UserTermSearch", method=RequestMethod.GET)
+    public String userTermSearchGet(Model model) {
+        model.addAttribute("Userterm", new Userterm());
+        return "UserTermSearch";
+    }  
+    
+    @RequestMapping(value="/UserTermSearch", method=RequestMethod.POST)
+    public String userTermSearch(@RequestParam("computerName")String computerName,Model model) throws JsonParseException, JsonMappingException, IOException {
+        Userterm found = new Userterm();
+    	UserTermEntity userTermFound = userTermRepository.findByComputerName(computerName);
+    	 	if (userTermFound != null){
+        	userTermRepository.delete(userTermFound);
+       }   	 	
+          	UserTermCBoxValues userCBoxes;
+		try {
+			userCBoxes = mapper.readValue(userTermFound.getJsonChecklist(), UserTermCBoxValues.class);
+			found.setC1(userCBoxes.getC1());
+	    	found.setC2(userCBoxes.getC2());
+	    	found.setC3(userCBoxes.getC3());
+	    	found.setC4(userCBoxes.getC4());
+	    	found.setC5(userCBoxes.getC5());
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		found.setComputerName(userTermFound.getComputerName());
+    	model.addAttribute("Userterm", found);
+    	return "UserTerm";
+    }
+    
     
     /*
      * End of User Term Form Submit
@@ -222,11 +272,47 @@ public class SimpleWebController {
     		}
             return "";
         }
-        
+        @RequestMapping(value="/NewUserSearch", method=RequestMethod.GET)
+        public String newUserSearchGet(Model model) {
+            model.addAttribute("Newuser", new Newuser());
+            return "NewUserSearch";
+        } 
+       
+       
+        @RequestMapping(value="/NewUserSearch", method=RequestMethod.POST)
+        public String newUserSearch(@RequestParam("computerName")String computerName,Model model) throws JsonParseException, JsonMappingException, IOException {
+            Newuser found = new Newuser();
+        	NewUserEntity newUserFound = newUserRepository.findByComputerName(computerName);
+        	 	if (newUserFound != null){
+            	newUserRepository.delete(newUserFound);
+           }   	 	
+              	NewUserCBoxValues userCBoxes;
+    		try {
+    			userCBoxes = mapper.readValue(newUserFound.getJsonChecklist(), NewUserCBoxValues.class);
+    			found.setC1(userCBoxes.getC1());
+    	    	found.setC2(userCBoxes.getC2());
+    	    	found.setC3(userCBoxes.getC3());
+    	    	found.setC4(userCBoxes.getC4());
+    	    	found.setC5(userCBoxes.getC5());
+    		} catch (JsonParseException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		} catch (JsonMappingException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    		found.setComputerName(newUserFound.getComputerName());
+        	model.addAttribute("Newuser", found);
+        	return "NewUser";
+        }
         /*
          * End of User Term Form Submit
          */
         /*
+         
          * End of User Term Form Submit
          */
         /*  
@@ -261,5 +347,41 @@ public class SimpleWebController {
             /*
              * End of User Term Form Submit
              */
+            @RequestMapping(value="/BitLockerSearch", method=RequestMethod.GET)
+            public String bitLockerSearchGet(Model model) {
+                model.addAttribute("Bitlocker", new Bitlocker());
+                return "BitLockerSearch";
+            }
+            @RequestMapping(value="/BitLockerSearch", method=RequestMethod.POST)
+            public String bitLockerSearch(@RequestParam("computerName")String computerName,Model model) throws JsonParseException, JsonMappingException, IOException {
+                Bitlocker found = new Bitlocker();
+            	BitLockerEntity bitLockerFound = bitLockerRepository.findByComputerName(computerName);
+            	 	if (bitLockerFound != null){
+                	bitLockerRepository.delete(bitLockerFound);
+               }   	 	
+                  	BitLockerCBoxValues userCBoxes;
+        		try {
+        			userCBoxes = mapper.readValue(bitLockerFound.getJsonChecklist(), BitLockerCBoxValues.class);
+        			found.setC1(userCBoxes.getC1());
+        	    	found.setC2(userCBoxes.getC2());
+        	    	found.setC3(userCBoxes.getC3());
+        	    	found.setC4(userCBoxes.getC4());
+        	    	found.setC5(userCBoxes.getC5());
+        		} catch (JsonParseException e) {
+        			// TODO Auto-generated catch block
+        			e.printStackTrace();
+        		} catch (JsonMappingException e) {
+        			// TODO Auto-generated catch block
+        			e.printStackTrace();
+        		} catch (IOException e) {
+        			// TODO Auto-generated catch block
+        			e.printStackTrace();
+        		}
+        		found.setComputerName(bitLockerFound.getComputerName());
+            	model.addAttribute("Bitlocker", found);
+            	return "BitLocker";
+            }
+            
     }
+
 
