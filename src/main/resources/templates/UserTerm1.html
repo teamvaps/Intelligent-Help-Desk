@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Termination Task Checklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="en-us">
+	<!-- meta http-equiv="Content-Type" content="text/html; charset=windows-1252"-->
+	<title>User Termination Task</title>
+</head>
+
+<body bgcolor="#C0C0C0">
+<form action="#" th:action="@{/UserTerm}" th:object="${Userterm}" method="post">
+
+<p align="center"><font color="#008080"><b>User Termination Task Checklist</b></font></p>
+<p align="center">&nbsp;</p>
+<p align="center">Computer Name: <input type="text" th:field="*{computerName}" name="computerName" id="computerName" size="20">&nbsp;&nbsp;&nbsp; 
+Date: <input th:field="*{date}" type="text" name="date" size="20">&nbsp; Ticket:<input type="text" th:field="*{ticket}" id='ticket' name="ticket" size="20"> 
+Tech:<input th:field="*{tech}" type="text" id='tech' name="tech" size="20"></p>
+<p>&nbsp;</p>
+<table border="1" width="100%">
+	<tr>
+		<td width="653"><input type="checkbox" name="C1" id="C1" th:field="*{C1}" value="ON">Check the ticket Type.&nbsp; </td>
+		<td><input type="checkbox" name="C3" id="C3" th:field="*{C3}" value="ON">Termination history excel sheet&nbsp; </td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C2" id="C2" th:field="*{C2}" value="ON">Office365</td>
+		<td><input type="checkbox" name="C4" id="C4" th:field="*{C4}" value="ON">8x8</td>
+	</tr>
+	<tr>
+		<td width="653"><input type="checkbox" name="C5" id="C5" th:field="*{C5}" value="ON">Active Directory</td>
+		<td><input type="checkbox" name="C6" id="C6" th:field="*{C6}" value="ON">Connect Wise</td>
+	</tr>
+	
+</table>
+	<p><input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2"><input type="reset" value="Delete" name="B3"><input type="reset" value="Search" name="B4"></p>
+</form>
+</body>
+
+</html>
