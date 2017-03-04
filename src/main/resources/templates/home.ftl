@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>CS580 Demo Web Service</title>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>    

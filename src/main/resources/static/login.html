@@ -1,0 +1,39 @@
+<div id="login-page">
+	<div class="custom-message green"	ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
+	<div class="custom-message red" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
+	<div id="holder">0
+		<a ui-sref="home"><div class="back-button">&#8592;	Back</div></a>
+		<span id="logohq" style="margin-top: 25px; margin-bottom: 10px;"></span>
+		<div id="box">
+			<h2>Login</h2>
+			<form name="login" ng-submit="ctrl.checkUser()">
+				<div class="">
+					<div class="">
+						<label class="custom-label" for="name">Name</label>
+						<div class="">
+							<input type="text" ng-model="name" id="name"
+								class="custom-login"
+								placeholder="Enter your name" required ng-minlength="3" />
+						</div>
+					</div>
+				</div>
+				<div class="">
+					<div class="">
+						<label class="custom-label" for="password">Password</label>
+						<div class="">
+							<input type="password" ng-model="password" id="password"
+								class="custom-login" placeholder="Enter your password"
+								required ng-minlength="3" />
+						</div>
+					</div>
+				</div>
+				<div class="">
+					<button type="submit" class="custom-button">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="js/particles.js"></script>
+<script src="js/plugins2.js"></script>
+

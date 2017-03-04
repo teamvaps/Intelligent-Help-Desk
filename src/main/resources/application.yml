@@ -1,13 +1,37 @@
+---
+server:
+  port: 80
+  contextPath: /
+---
 spring:
-  thymeleaf:
-    cache: false
-    mode: LEGACYHTML5
-  datasource:
-    password: Arezoo1074
-    url: jdbc:mysql://arezoofothion.ccayc5se8sqr.us-west-2.rds.amazonaws.com:3306/Fothion
-    username: ArezooFothion
-  jpa:
-    show-sql: true
+  profiles: local 
+datasource:
+  app:
+    url: jdbc:h2:~/test
+    username: SA
+    password:
+    driverClassName: org.h2.Driver
+    defaultSchema:
+    maxPoolSize: 10
     hibernate:
-      ddl-auto:  update
+      hbm2ddl.method: create-drop
+      show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.H2Dialect
+---
+spring:
+  profiles: prod, default
+datasource:
+  app:
+    url: jdbc:mysql://teamvaps.caspvrrn1gnc.us-west-2.rds.amazonaws.com:3306/helpdesk
+    username: pavan
+    password: teamvaps.1
+    driverClassName: com.mysql.jdbc.Driver
+    defaultSchema:
+    maxPoolSize: 20
+    hibernate:
+      hbm2ddl.method: update
+      show_sql: true
+      format_sql: true
       dialect: org.hibernate.dialect.MySQLDialect
+

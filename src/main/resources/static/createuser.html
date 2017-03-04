@@ -1,0 +1,76 @@
+<div class="formcontainer">
+	<div class="alert alert-success" role="alert"
+		ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
+	<div class="alert alert-danger" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
+	<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+		<input type="hidden" ng-model="ctrl.user.id" />
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="uname">Name</label>
+				<div class="col-md-7">
+					<input type="text" ng-model="ctrl.user.name" id="uname"
+						class="username form-control input-sm"
+						placeholder="Enter your name" required ng-minlength="3" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="password">Password</label>
+				<div class="col-md-7">
+					<input type="password" ng-model="ctrl.user.password" id="password"
+						class="form-control input-sm" placeholder="Enter your password"
+						required ng-minlength="3" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="role">Role</label>
+				<div class="col-md-7">
+					<input type="radio" ng-model="ctrl.user.role" id="role"
+						class="form-control" value="Admin" />
+					<p>Admin Debug</p>
+					<input type="radio" ng-model="ctrl.user.role" id="role"
+						class="form-control" value="Agent" />
+					<p>Agent</p>
+					<input type="radio" ng-model="ctrl.user.role" id="role"
+						class="form-control" value="Customer" />
+					<p>Customer</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="email">Email</label>
+				<div class="col-md-7">
+					<input type="email" ng-model="ctrl.user.email" id="email"
+						class="form-control input-sm" placeholder="Enter your email"
+						required ng-minlength="3" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="phone">Phone
+					Number</label>
+				<div class="col-md-7">
+					<input type="text" ng-model="ctrl.user.phone" id="phone"
+						class="form-control input-sm"
+						placeholder="Enter your Phone Number" required ng-maxlength="10" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-actions floatRight">
+				<input type="submit" value="{{!ctrl.user.id ? 'Add' : 'Update'}}"
+					class="btn btn-primary btn-sm"
+					ng-disabled="myForm.$invalid || myForm.$pristine">
+				<button type="button" ng-click="ctrl.reset()"
+					class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset
+					Form</button>
+			</div>
+		</div>
+	</form>
+</div>
