@@ -4,7 +4,7 @@ server:
   contextPath: /
 ---
 spring:
-  profiles: local 
+  profiles: local, default
 datasource:
   app:
     url: jdbc:h2:~/test
@@ -20,12 +20,12 @@ datasource:
       dialect: org.hibernate.dialect.H2Dialect
 ---
 spring:
-  profiles: prod, default
+  profiles: prod
 datasource:
   app:
-    url: jdbc:mysql://teamvaps.caspvrrn1gnc.us-west-2.rds.amazonaws.com:3306/helpdesk
-    username: pavan
-    password: teamvaps.1
+    url: jdbc:mysql://localhost:3306/helpdesk
+    username: root
+    password: Pavan.1
     driverClassName: com.mysql.jdbc.Driver
     defaultSchema:
     maxPoolSize: 20

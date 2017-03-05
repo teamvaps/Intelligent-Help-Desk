@@ -1,8 +1,8 @@
 var mainApp = angular.module("mainApp", ['ui.router', 'ngStorage', 'ngResource', 'ngCookies', 'ngAnimate']);
 
 mainApp.constant('urls',{
-	BASE: 'http://ec2-35-166-184-155.us-west-2.compute.amazonaws.com:80',
-	USER_SERVICE_API: 'http://ec2-35-166-184-155.us-west-2.compute.amazonaws.com:80/api/'
+	BASE: 'http://35.165.175.111',
+	USER_SERVICE_API: 'http://35.165.175.111/api/'
 })
 
 mainApp.run(run);
