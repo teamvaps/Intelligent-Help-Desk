@@ -9,7 +9,6 @@ angular.module('mainApp').controller('UserController',
         $scope.name;
         $scope.password;
         $rootScope.globals;
-        $rootScope.currentUser;
  
         self.submit = submit;
         self.getAllUsers = getAllUsers;
@@ -19,6 +18,7 @@ angular.module('mainApp').controller('UserController',
         self.editUser = editUser;
         self.checkUser = checkUser;
         self.setCredentials = setCredentials;
+        self.clearCredentials = clearCredentials;
         self.reset = reset;
  
         self.successMessage = '';
@@ -149,11 +149,13 @@ angular.module('mainApp').controller('UserController',
         }
         
         
-        function ClearCredentials() {
+        function clearCredentials() {
         	$rootScope.globals = {};
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
-            $rootScope.currentUser = 'Guest';
+            console.log('Cookies cleared!');
+            $location.path('/');
+            
         }
     
         function reset(){

@@ -14,7 +14,7 @@ public interface UserService {
 	 
 	 User findByRole(String role);
 	 
-	 User findByPhone(long phone);
+	 User findByPhone(String phone);
 	 
 	 void saveUser(User user);
 	 

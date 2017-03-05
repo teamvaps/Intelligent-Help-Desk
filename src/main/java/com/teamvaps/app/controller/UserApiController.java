@@ -22,9 +22,9 @@ import com.teamvaps.app.util.CustomErrorType;
 
 @RestController
 @RequestMapping("/api")
-public class RestApiController {
+public class UserApiController {
 	
-	public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
+	public static final Logger logger = LoggerFactory.getLogger(UserApiController.class);
 	
 	@Autowired
 	UserService userService;

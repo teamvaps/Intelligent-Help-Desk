@@ -12,7 +12,7 @@ angular.module('mainApp').factory('UserService',
                 updateUser: updateUser,
                 removeUser: removeUser,
                 checkUser: checkUser,
-//                setCredentials: setCredentials,
+//              setCredentials: setCredentials,
             };
  
             return factory;

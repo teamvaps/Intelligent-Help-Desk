@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findByPhone(long phone) {
-		return userRepository.findOne(phone);
+	public User findByPhone(String phone) {
+		return userRepository.findByName(phone);
 	}
 
 	@Override
