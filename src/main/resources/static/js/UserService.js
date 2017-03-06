@@ -9,9 +9,14 @@ angular.module('mainApp').factory('UserService',
                 getAllUsers: getAllUsers,
                 getUser: getUser,
                 createUser: createUser,
+                createTicket: createTicket,
                 updateUser: updateUser,
                 removeUser: removeUser,
                 checkUser: checkUser,
+                loadAllTickets: loadAllTickets,
+                loadAllTicketsByName: loadAllTicketsByName,
+                getAllTickets: getAllTickets,
+                getAllTicketsByName: getAllTicketsByName,
 //              setCredentials: setCredentials,
             };
  
@@ -72,7 +77,24 @@ angular.module('mainApp').factory('UserService',
                     );
                 return deferred.promise;
             }
- 
+            function createTicket(ticket) {
+                console.log('Creating Ticket');
+                var deferred = $q.defer();
+                $http.post(urls.USER_SERVICE_API+'ticket/', ticket)
+                    .then(
+                        function (response) {
+                            loadAllTickets();
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                           console.error('Error while creating ticket : '+errResponse.data.errorMessage);
+                           deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+
+            
             function updateUser(user, id) {
                 console.log('Updating User with id '+id);
                 var deferred = $q.defer();
@@ -124,6 +146,61 @@ angular.module('mainApp').factory('UserService',
             	);
                 return deferred.promise;
             }
+            function loadAllTickets() {
+                console.log('Fetching all tickets');
+                var deferred = $q.defer();
+                $http.get(urls.USER_SERVICE_API +'tickets/')
+                    .then(
+                        function (response) {
+                            console.log('Fetched successfully all tickets');
+                            $localStorage.tickets = response.data;
+                            deferred.resolve(response);
+                        },
+                        function (errResponse) {
+                            console.error('Error while loading tickets');
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
             }
+ 
+            function getAllTickets(){
+            	console.log('returned tickets service');
+                return $localStorage.tickets;
+            }
+            
+            
+            function loadAllTicketsByName(name) {
+                console.log('Fetching all tickets by user' + name);
+                var deferred = $q.defer();
+                $http.get(urls.USER_SERVICE_API +'tickets/' + name)
+                    .then(
+                        function (response) {
+                            console.log('Fetched successfully all tickets by the user '+ name);
+                            $localStorage.ticketsbyuser = response.data;
+                            deferred.resolve(response);
+                        },
+                        function (errResponse) {
+                            console.error('Error while loading tickets');
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+ 
+            function getAllTicketsByName(){
+            	console.log('returned tickets service');
+                return $localStorage.ticketsbyuser;
+            }
+
+            
+            
+            
+            
+            }
+    
+    		
+    		
+  
     
     ]);

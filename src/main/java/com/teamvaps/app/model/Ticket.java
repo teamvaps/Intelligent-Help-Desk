@@ -3,6 +3,8 @@ package com.teamvaps.app.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 
 @Entity
@@ -19,7 +21,7 @@ public class Ticket implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="AUTHORID", nullable=false)
 	private Long authorid;
 	
@@ -39,7 +41,7 @@ public class Ticket implements Serializable{
 	@Column(name="STATUS", nullable=false)
 	private String status;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="AGENTID", nullable=false)
 	private Long agentid;
 	

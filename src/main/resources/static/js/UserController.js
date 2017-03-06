@@ -9,10 +9,14 @@ angular.module('mainApp').controller('UserController',
         $scope.name;
         $scope.password;
         $rootScope.globals;
+        $scope.authorid = 1;
+
  
         self.submit = submit;
+        self.submitTicket = submitTicket;
         self.getAllUsers = getAllUsers;
         self.createUser = createUser;
+        self.createTicket = createTicket;
         self.updateUser = updateUser;
         self.removeUser = removeUser;
         self.editUser = editUser;
@@ -20,6 +24,14 @@ angular.module('mainApp').controller('UserController',
         self.setCredentials = setCredentials;
         self.clearCredentials = clearCredentials;
         self.reset = reset;
+        self.getAllTickets = getAllTickets;
+        self.loadAllTicketsByName = loadAllTicketsByName;
+        self.getAllTicketsByName = getAllTicketsByName
+//        self.getAllTicketBy = getAllTicketBy;
+//        self.createTicket = createTicket;
+//        self.updateTicket = updateTicket;
+//        self.removeTicket = removeTicket;
+//        self.editTicket = editTicket;
  
         self.successMessage = '';
         self.errorMessage = '';
@@ -34,8 +46,18 @@ angular.module('mainApp').controller('UserController',
                 console.log('Saving New User', self.user);
                 createUser(self.user);
             } else {
-                updateUser(self.user, self.user.id);
+//                updateUser(self.user, self.user.id);
                 console.log('User updated with id ', self.user.id);
+            }
+        }
+        function submitTicket() {
+            console.log('Submitting');
+            if (self.ticket.id === undefined || self.ticket.id === null) {
+                console.log('Saving New ticket', self.ticket);
+                createTicket(self.ticket);
+            } else {
+                updateUser(self.ticket, self.ticket.id);
+                console.log('ticket updated with id ', self.ticket.id);
             }
         }
  
@@ -59,6 +81,25 @@ angular.module('mainApp').controller('UserController',
                 );
         }
  
+        function createTicket(ticket) {
+            console.log('About to create ticket');
+            UserService.createTicket(ticket)
+                .then(
+                    function (response) {
+                        console.log('ticket created successfully');
+                        self.successMessage = 'Ticket created successfully';
+                        self.errorMessage='';
+                        self.done = true;
+                        self.ticket={};
+                        $scope.myForm1.$setPristine();
+                    },
+                    function (errResponse) {
+                        console.error('Error while creating User');
+                        self.errorMessage = 'Error while creating User: ' + errResponse.data.errorMessage;
+                        self.successMessage='';
+                    }
+                );
+        }
  
         function updateUser(user, id){
             console.log('About to update user');
@@ -164,6 +205,28 @@ angular.module('mainApp').controller('UserController',
             self.user={};
             $scope.myForm.$setPristine(); //reset Form
         }
+        function getAllTickets(){
+        	console.log('returned tickets controll');
+
+            return UserService.getAllTickets();
+        }
+        function loadAllTicketsByName(){
+        	UserService.loadAllTicketsByName($rootScope.currentUser);
+        }
+        
+        function getAllTicketsByName(){
+        	console.log('returned tickets controll');
+
+            return UserService.getAllTicketsByName();
+        }
+
+        
+        
+        
+        
+        
     }
+    
+    
     
     ]);

@@ -1,1 +1,17 @@
-<p>sakjfhasjkfhoakshlflashf</p>
+<div id="ticketpage" style="width: 60%;float: left;margin-left: 15px;" ng-init="ctrl.loadAllTicketsByName() ">
+	<span class="text">Your Tickets</span><button><a ui-sref="dashboard.newticket">New Ticket</a></button> 
+	
+	<div class="ticketblock" ng-repeat="t in ctrl.getAllTicketsByName()">
+		<a ui-sref="dashboard.tickets.viewticket"><div class="type {{t.type}}"></div>
+			<div class="holder" >
+				<div class="tickethead">Ticket ID  {{t.id}}<span class="color"> &#9658;</span> {{t.name}}</div><i class="material-icons" style="float:right; padding:10px;">&#xE5D4;</i>			
+				<div class="descholder">{{t.descr}}</div>
+		</div>
+		</a>
+	</div>
+
+
+</div>
+<div id="viewticket" ui-view>
+
+</div>

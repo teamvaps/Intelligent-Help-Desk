@@ -23,7 +23,7 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public Ticket findByAuthorId(Long authorid) {
+	public Ticket findByAuthId(Long authorid) {
 		return ticketRepository.findOne(authorid);
 	}
 	
@@ -69,7 +69,7 @@ public class TicketServiceImpl implements TicketService {
 		return ticketRepository.findAll();
 	}
 	@Override
-	public List<Ticket> findTicketsByAuthor(Long authorid) {
-		return ticketRepository.findByAuthorid(authorid );
+	public List<Ticket> findAllTicketsByAuthor(Long authorid) {
+		return ticketRepository.findByAuthorid(authorid);
 	}
 }

@@ -38,25 +38,28 @@ public class TicketApiController {
 	@RequestMapping(value ="/tickets/", method = RequestMethod.GET)
 	public ResponseEntity<List<Ticket>> listAllTickets() {
 		List<Ticket> tickets = ticketService.findAllTickets();
-		if(tickets.isEmpty()){
+		if(tickets==null){
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Ticket>>(tickets, HttpStatus.OK);
 	}
 	
-	//Find tickets by user name
 	@RequestMapping(value ="/tickets/{name}", method = RequestMethod.GET)
-	public ResponseEntity<List<Ticket>> getTickets(@PathVariable("name") String name) {
-		logger.info("Fetching tickets with author name {}", name);
+	public ResponseEntity<List<Ticket>> listTicketsByName(@PathVariable("name") String name) {
 		User user = userService.findByName(name);
-		Long authorid=user.getId();
-		List<Ticket> tickets = ticketService.findTicketsByAuthor(authorid);
-		if(tickets == null){
-			logger.error("No tickets found!");
-			return new ResponseEntity(new CustomErrorType("No tickets found"), HttpStatus.NOT_FOUND);
+		if(user==null){
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
-		logger.info("Tickets found!");
+		
+		Long authid=user.getId();
+		logger.info("auth id is {}", authid);
+		List<Ticket> tickets = ticketService.findAllTicketsByAuthor(authid);
+		if(tickets.isEmpty()){
+			logger.info("tickets not found");
 
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+		}
+		logger.info("tickets found!");
 		return new ResponseEntity<List<Ticket>>(tickets, HttpStatus.OK);
 	}
 //	Create ticket!

@@ -1,0 +1,59 @@
+<div class="formcontainer">
+	<div class="alert alert-success" role="alert"
+		ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
+	<div class="alert alert-danger" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
+	<form ng-submit="ctrl.submitTicket()" name="myForm1" class="form-horizontal">
+		<input type="hidden" ng-model="ctrl.ticket.id" />
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="name">Ticket Title</label>
+				<div class="col-md-7">
+					<input type="text" ng-model="ctrl.ticket.name" id="uname"
+						class="username form-control input-sm"
+						placeholder="Enter the title of your ticket" required ng-minlength="3" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="desc">Description</label>
+				<div class="col-md-7">
+					<textarea  ng-model="ctrl.ticket.descr" id="desc" rows="5"
+						class="form-control" placeholder="Describe your issue in detail."
+						required ng-minlength="3" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<label class="col-md-2 control-lable" for="role">Ticket Type</label>
+				<div class="col-md-7">
+					<div class="radio">
+						<label><input type="radio" ng-model="ctrl.ticket.type" value="normal" id="type" name="optradio">Normal</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" ng-model="ctrl.ticket.type" value="critical" id="type" name="optradio">Critical</label>
+					</div>
+					<div class="radio">
+						<label><input type="radio" ng-model="ctrl.ticket.type" id="type" value="moderate" name="optradio">Moderate</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input ng-model="ctrl.ticket.authorid" ng-init="ctrl.ticket.authorid =1" type="hidden"></input>
+		<input ng-model="ctrl.ticket.agentid" ng-init="ctrl.ticket.agentid =3" type="hidden"></input>
+		<input ng-model="ctrl.ticket.status" ng-init="ctrl.ticket.status ='Unassigned'" type="hidden"></input>
+		<input ng-model="ctrl.ticket.agentcomments" ng-init="ctrl.ticket.agentcomments ='No comments from agent so far'" type="hidden"></input>
+
+		<div class="row">
+			<div class="form-actions floatRight">
+				<input type="submit" value="{{!ctrl.ticket.id ? 'Add' : 'Update'}}"
+					class="btn btn-primary btn-sm"
+					ng-disabled="myForm1.$invalid || myForm1.$pristine">
+				<button type="button" ng-click="ctrl.reset()"
+					class="btn btn-warning btn-sm" ng-disabled="myForm1.$pristine">Reset
+					Form</button>
+			</div>
+		</div>
+	</form>
+</div>

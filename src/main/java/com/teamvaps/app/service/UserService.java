@@ -13,9 +13,7 @@ public interface UserService {
 	 User findByEmail(String email);
 	 
 	 User findByRole(String role);
-	 
-	 User findByPhone(String phone);
-	 
+	 	 
 	 void saveUser(User user);
 	 
 	 void updateUser(User user);
@@ -31,6 +29,10 @@ public interface UserService {
 	 void deleteAllUsers();
 	 
 	 List<User> findAllUsers();
+
+	List<User> findAllByPhone(String phone);
+
+	User findByPhoneNumber(String phone);
 
 	 
 }

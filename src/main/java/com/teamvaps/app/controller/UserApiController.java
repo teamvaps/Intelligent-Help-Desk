@@ -37,6 +37,15 @@ public class UserApiController {
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
+	@RequestMapping(value ="/user/phone/{phone}", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> listUsersByPhone(@PathVariable("phone") String phone) {
+		List<User> users = userService.findAllByPhone(phone);
+		if(users.isEmpty()){
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	}
+
 	
 	@RequestMapping(value ="/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getUser(@PathVariable("id") long id) {

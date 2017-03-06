@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findByPhone(String phone) {
+	public User findByPhoneNumber(String phone) {
 		return userRepository.findByName(phone);
 	}
 
@@ -80,5 +80,11 @@ public class UserServiceImpl implements UserService {
 	public List<User> findAllUsers() {
 		return userRepository.findAll();
 	}
+	@Override
+	public List<User> findAllByPhone(String phone) {
+		return userRepository.findByPhone(phone);
+	}
+	
+	
 
 }

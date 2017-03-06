@@ -2,7 +2,7 @@
 	<div id="logo"></div>
 	<ul>
 		<li ><a ui-sref-active="active" ui-sref="dashboard.tickets" class="ticket"></a></li>
-		<li ><a ui-sref-active="active" ui ui-sref="dashboard.userdisplay" class="user"></a></li>
+		<li ><a ui-sref-active="active" ui-sref="dashboard.userdisplay" class="user"></a></li>
 		<li ><a ui-sref="dashboard.org" class="org"></a></li>
 		<li ><a ui-sref-active="active" ui-sref="dashboard.agent" class="agent"></a></li>
 		<div style="width:inherit; text-align:center;padding-top:15px;" ><span style="color:#fff;"> {{globals.currentUser.name}} </br></span> <span style="color:#fff;"> &#9670;</br></span><button class="logout-button" ng-click="ctrl.clearCredentials()">Logout</button></div>
@@ -13,7 +13,9 @@
 	<div class="welcome-message" >Welcome to Intelligent Help Desk<span class="color"> &#9670;</span> You can view and create new tickets here.</br>
 		You are logged in as {{globals.currentUser.name}}</div>
 		<div class="welcome-message red" ng-if="loggedIn">You are not Logged in! Please login to Continue</div>
-	<div ui-view class="container">
+	<div ui-view style="
+    width: 100%;
+    height: 100%;
+    display: block;">
 	</div>
-
 </div>
