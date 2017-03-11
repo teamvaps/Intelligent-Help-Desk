@@ -11,8 +11,6 @@ public interface ChecklistService {
 
 	Checklist findByItem(String item);
 
-	Checklist findByAuthorId(Long authorid);
-
 	void saveChecklist(Checklist checklist);
 
 	void updateChecklist(Checklist checklist);

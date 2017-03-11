@@ -74,6 +74,21 @@ public class TicketApiController {
 		return new ResponseEntity<String>(headers, HttpStatus.CREATED);
 	}
 //	Delete ticket!
+    @RequestMapping(value = "/ticket/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getTicket(@PathVariable("id") long id) {
+        logger.info("Fetching Ticket with id {}", id);
+ 
+        Ticket ticket = ticketService.findById(id);
+        if (ticket == null) {
+            logger.error("Unable to delete. Ticket with id {} not found.", id);
+            return new ResponseEntity(new CustomErrorType("Unable to delete. Ticket with id " + id + " not found."),
+                    HttpStatus.NOT_FOUND);
+        }
+        logger.info("Fetched the ticket!");
+        return new ResponseEntity<Ticket>(ticket, HttpStatus.OK);
+    }
+
+	
     @RequestMapping(value = "/ticket/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteTicket(@PathVariable("id") long id) {
         logger.info("Fetching & Deleting Ticket with id {}", id);

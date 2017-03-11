@@ -1,3 +1,40 @@
-<div id="viewcontainer">
-tafiajfjl
+<div id="viewcontainer" ng-init="ctrl.getTicket()">
+
+	    <div class="ticketdetails">Details  <span style="color:#01849f;">  &#9658;</span> Ticket Id {{ticket.id}}</div>
+		<div class="titletext">Issue</div> <div class="title">{{ticket.name}}</div>
+	    <div class="titletext">Message</div><div class="desc">{{ticket.descr}}</div>
+	    <div style="margin-top:10px;" class="ticketdetails" >Checklist</div>
+	    <div class="titletext" >Select Product:</div>
+	    <div ng-init="ctrl.loadAllChecklist()">
+		<input style="
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-left: 28px;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px;
+" type="text" ng-model="search.type">
+				
+		<div class="titletext">Select Checklist Items:</div>
+		<div ng-repeat="c in ctrl.getAllChecklist()| orderBy : '-score' | filter : search">
+				<input style="margin-left:20px;" type="checkbox" ng-model="item" > <span style="width: 86%;
+    margin: auto;
+    color: #fff;">{{c.item + ", " + c.score}}</span></li>
+		</div>
+	    <div class="titletext">Most useful Checklist Item</div>
+			<select style="margin-left:20px;" ng-model="test" ng-options="c.item for c in ctrl.getAllChecklist() | filter : search" >
+				    <option value="0">Default</option>
+				    // unique options from the categories
+			</select>
+			<button style="float: right;
+    margin-right: 51px;
+    margin-top: 10px; ng-click="ctrl.submitList()" class="logout-button">Submit</button>	
+		</div>
+   	    </div>
+	    </div>
+	    
+	
+
 </div>

@@ -2,7 +2,8 @@
 	<div class="alert alert-success" role="alert"
 		ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
 	<div class="alert alert-danger" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
-	<form ng-submit="ctrl.submitTicket()" name="myForm1" class="form-horizontal">
+	<form ng-submit="ctrl.submitTicket()" style="    width: 80%;
+    margin: auto; margin-top:50px;" name="myForm1" class="form-horizontal">
 		<input type="hidden" ng-model="ctrl.ticket.id" />
 		<div class="row">
 			<div class="form-group col-md-12">
@@ -40,8 +41,8 @@
 				</div>
 			</div>
 		</div>
-		<input ng-model="ctrl.ticket.authorid" ng-init="ctrl.ticket.authorid =1" type="hidden"></input>
-		<input ng-model="ctrl.ticket.agentid" ng-init="ctrl.ticket.agentid =3" type="hidden"></input>
+		<input ng-model="ctrl.ticket.authorid" ng-init="{{ctrl.authorid}}" type="hidden"></input>
+		<input ng-model="ctrl.ticket.agentid" ng-init="{{ctrl.agentid}}" type="hidden"></input>
 		<input ng-model="ctrl.ticket.status" ng-init="ctrl.ticket.status ='Unassigned'" type="hidden"></input>
 		<input ng-model="ctrl.ticket.agentcomments" ng-init="ctrl.ticket.agentcomments ='No comments from agent so far'" type="hidden"></input>
 

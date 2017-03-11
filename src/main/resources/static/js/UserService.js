@@ -17,6 +17,9 @@ angular.module('mainApp').factory('UserService',
                 loadAllTicketsByName: loadAllTicketsByName,
                 getAllTickets: getAllTickets,
                 getAllTicketsByName: getAllTicketsByName,
+                getTicket: getTicket,
+                loadAllChecklist: loadAllChecklist,
+                getAllChecklist: getAllChecklist,
 //              setCredentials: setCredentials,
             };
  
@@ -163,10 +166,32 @@ angular.module('mainApp').factory('UserService',
                     );
                 return deferred.promise;
             }
+            function loadAllChecklist() {
+                console.log('Fetching all checklist');
+                var deferred = $q.defer();
+                $http.get(urls.USER_SERVICE_API +'checklist/')
+                    .then(
+                        function (response) {
+                            console.log('Fetched successfully all checklist');
+                            $localStorage.checklist = response.data;
+                            deferred.resolve(response);
+                        },
+                        function (errResponse) {
+                            console.error('Error while loading checklist');
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+
  
             function getAllTickets(){
             	console.log('returned tickets service');
                 return $localStorage.tickets;
+            }
+            function getAllChecklist(){
+            	console.log('returned checklist service');
+                return $localStorage.checklist;
             }
             
             
@@ -192,7 +217,23 @@ angular.module('mainApp').factory('UserService',
             	console.log('returned tickets service');
                 return $localStorage.ticketsbyuser;
             }
-
+            function getTicket(id) {
+                console.log('Fetching Ticket with id :'+id);
+                var deferred = $q.defer();
+                $http.get(urls.USER_SERVICE_API + 'ticket/' + id)
+                    .then(
+                        function (response) {
+                            console.log('Ticket successfully User with id :'+id);
+                            deferred.resolve(response.data);
+                            console.log(response.data.id);
+                        },
+                        function (errResponse) {
+                            console.error('Error while loading user with id :'+id);
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
             
             
             

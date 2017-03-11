@@ -28,10 +28,6 @@ public class ChecklistServiceImpl implements ChecklistService {
 	}
 	
 	@Override
-	public Checklist findByAuthorId(Long authorid){
-		return checklistRepository.findOne(authorid);
-	}
-	@Override
 	public void saveChecklist(Checklist checklist) {
 		checklistRepository.save(checklist);
 	}

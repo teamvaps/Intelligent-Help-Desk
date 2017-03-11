@@ -2,7 +2,8 @@
 	<div class="alert alert-success" role="alert"
 		ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
 	<div class="alert alert-danger" role="alert" ng-if="ctrl.errorMessage">{{ctrl.errorMessage}}</div>
-	<form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+	<form ng-submit="ctrl.submit()" style="    width: 80%;
+    margin: auto; margin-top:50px;" name="myForm" class="form-horizontal">
 		<input type="hidden" ng-model="ctrl.user.id" />
 		<div class="row">
 			<div class="form-group col-md-12">
@@ -28,15 +29,18 @@
 			<div class="form-group col-md-12">
 				<label class="col-md-2 control-lable" for="role">Role</label>
 				<div class="col-md-7">
+									<div class="radio">
 					<input type="radio" ng-model="ctrl.user.role" id="role"
 						class="form-control" value="Admin" />
-					<p>Admin Debug</p>
+					<p>Admin</p></div>
+					<div class="radio">
 					<input type="radio" ng-model="ctrl.user.role" id="role"
 						class="form-control" value="Agent" />
-					<p>Agent</p>
+					<p>Agent</p></div>
+					<div class="radio">
 					<input type="radio" ng-model="ctrl.user.role" id="role"
 						class="form-control" value="Customer" />
-					<p>Customer</p>
+					<p>Customer</p></div>
 				</div>
 			</div>
 		</div>

@@ -9,5 +9,6 @@ import com.teamvaps.app.model.Checklist;
 
 public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
 	
+	
 	List<Checklist> findByType(String type);
 }

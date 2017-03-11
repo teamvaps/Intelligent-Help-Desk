@@ -38,10 +38,6 @@ public class Checklist implements Serializable {
 	@Column(name="SCORE", nullable=false)
 	private Long score;
 	
-	@NotEmpty
-	@Column(name="AUTHORID", nullable=false)
-	private Long authorid;
-
 	public Long getId() {
 		return id;
 	}
@@ -72,14 +68,6 @@ public class Checklist implements Serializable {
 
 	public void setScore(Long score) {
 		this.score = score;
-	}
-
-	public Long getAuthorid() {
-		return authorid;
-	}
-
-	public void setAuthorid(Long authorid) {
-		this.authorid = authorid;
 	}
 
 	public static long getSerialversionuid() {

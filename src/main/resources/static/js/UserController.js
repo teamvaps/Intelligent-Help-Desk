@@ -1,14 +1,16 @@
 'use strict';
  
 angular.module('mainApp').controller('UserController',
-    ['UserService', '$scope', '$location','$http','$rootScope','$cookies', function(  UserService, $scope, $location, $http, $rootScope, $cookies) {
+    ['UserService', '$scope', '$location','$http','$rootScope','$cookies', '$stateParams', function(  UserService, $scope, $location, $http, $rootScope, $cookies, $stateParams) {
  
         var self = this;
         self.user = {};
         self.users=[];
         $scope.name;
         $scope.password;
+        $scope.ticketId;
         $rootScope.globals;
+        $scope.ticket;
         $scope.authorid = 1;
 
  
@@ -26,7 +28,13 @@ angular.module('mainApp').controller('UserController',
         self.reset = reset;
         self.getAllTickets = getAllTickets;
         self.loadAllTicketsByName = loadAllTicketsByName;
-        self.getAllTicketsByName = getAllTicketsByName
+        self.getAllTicketsByName = getAllTicketsByName;
+        self.getTicketId = getTicketId;
+        self.getTicket = getTicket;
+        self.loadAllChecklist = loadAllChecklist;
+        self.getAllChecklist = getAllChecklist;
+        self.submitList = submitList;
+        
 //        self.getAllTicketBy = getAllTicketBy;
 //        self.createTicket = createTicket;
 //        self.updateTicket = updateTicket;
@@ -161,7 +169,7 @@ angular.module('mainApp').controller('UserController',
                 		console.log('yoooo...you are logged in');
                         self.successMessage='Logged in!';
                         setCredentials($scope.name, $scope.password);
-                        $location.path('dashboard');
+                        $location.path('dashboard/tickets');
                 },
                 function (errResponse) {
                     console.error('Error while logging in  user ');
@@ -214,13 +222,50 @@ angular.module('mainApp').controller('UserController',
         	UserService.loadAllTicketsByName($rootScope.currentUser);
         }
         
+        function loadAllChecklist(){
+        	console.log('invoked checklist');
+
+        	UserService.loadAllChecklist();
+
+        }
+        
+        function getAllChecklist(){
+
+            return UserService.getAllChecklist();
+
+        }
+        
         function getAllTicketsByName(){
         	console.log('returned tickets controll');
 
             return UserService.getAllTicketsByName();
         }
-
         
+        function getTicketId(){
+        	$scope.ticketId = $stateParams.ticketId;
+        	console.log('Ticket id is '+$scope.ticketId);
+        }
+        
+        function getTicket(){
+        	console.log('ticket retrieval control started');
+        	$scope.ticketId = $stateParams.ticketId;
+        	UserService.getTicket($scope.ticketId).then(
+                	
+                    function (response) {
+                    		$scope.ticket=response;
+                    		console.log('yoooo...got your ticket' + $scope.ticket.id);
+
+                    },
+                    function (errResponse) {
+                        console.error('Error getting ticket ');
+
+                    }
+                );
+        	
+        }
+        function submitList(){
+        	console.log('this has been invoked');
+        }
         
         
         

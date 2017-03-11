@@ -1,4 +1,4 @@
-var mainApp = angular.module("mainApp", ['ui.router', 'ngStorage', 'ngResource', 'ngCookies', 'ngAnimate']);
+var mainApp = angular.module("mainApp", ['ui.router', 'ngStorage', 'ngResource', 'ngCookies', 'ngAnimate','ui', 'ui.filters']);
 
 mainApp.constant('urls',{
 	BASE: 'http://localhost',
@@ -56,12 +56,13 @@ mainApp.config(['$stateProvider', '$urlRouterProvider',
 			templateUrl: "tickets.html",
 		    controller:'UserController',
 		    controllerAs:'ctrl',
+
 	   })
 	   	.state('dashboard.tickets.viewticket', {
-			url:'/viewticket',
-			templateUrl: "viewticket.html",
-		    controller:'UserController',
-		    controllerAs:'ctrl',
+			url:'/viewticket/:ticketId',
+ 			templateUrl: "viewticket.html",
+ 			controller: 'UserController',
+ 			controllerAs:'ctrl',
 	   })
 
 	   
@@ -94,7 +95,7 @@ mainApp.config(['$stateProvider', '$urlRouterProvider',
 			url:'/dashboard-org',
 			templateUrl: 'dashboard.org.html'
 	   })
-	   .state('createuser', {
+	   .state('dashboard.createuser', {
 			url:'/createuser',
 			templateUrl: 'createuser.html',
            controller:'UserController',
